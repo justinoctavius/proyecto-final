@@ -4,7 +4,7 @@ import {
 } from '../interfaces/transaction.interface';
 
 export interface AddTransactionDto {
-  mount: string;
+  mount: number;
   description: string;
   type: TransactionType;
   category_id: TransactionCategory;

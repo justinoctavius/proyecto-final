@@ -1,6 +1,6 @@
 export interface Transaction {
   description: string;
-  mount: string;
+  mount: number;
   date: Date;
   type: TransactionType;
   category: TransactionCategory;

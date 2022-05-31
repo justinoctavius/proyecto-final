@@ -5,7 +5,7 @@ import {
 
 export interface UpdateTransactionDto {
   id?: string;
-  mount?: string;
+  mount?: number;
   description?: string;
   type?: TransactionType;
   category_id?: TransactionCategory;
