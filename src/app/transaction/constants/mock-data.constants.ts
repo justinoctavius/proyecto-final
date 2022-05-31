@@ -4,7 +4,7 @@ import {
   TransactionType,
 } from '../interfaces/transaction.interface';
 
-export const categories: TransactionCategory[] = [
+export const categoriesMock: TransactionCategory[] = [
   {
     id: '1',
     description: 'prestamos',
@@ -43,44 +43,50 @@ export const categories: TransactionCategory[] = [
   },
 ];
 
-export const transactions: Transaction[] = [
+export const transactionsMock: Transaction[] = [
   {
-    category: categories[0],
+    id: '1',
+    category: categoriesMock[0],
     date: new Date(),
     description: 'prestamo al vecino',
     mount: 5000,
     type: TransactionType.EXPENSIVE,
   },
   {
-    category: categories[1],
+    id: '2',
+    category: categoriesMock[1],
     date: new Date(),
     description: '5 acetaminofen',
     mount: 400,
     type: TransactionType.EXPENSIVE,
   },
   {
-    category: categories[2],
+    id: '3',
+    category: categoriesMock[2],
     date: new Date(),
     description: 'regalo del dia de las madres',
     mount: 2500,
     type: TransactionType.EXPENSIVE,
   },
   {
-    category: categories[3],
+    id: '4',
+    category: categoriesMock[3],
     date: new Date(),
     description: 'pago alquiler',
     mount: 15000,
     type: TransactionType.EXPENSIVE,
   },
   {
-    category: categories[4],
+    id: '5',
+    category: categoriesMock[4],
     date: new Date(),
     description: 'Bono del trabajo',
     mount: 5000,
     type: TransactionType.INCOMES,
   },
   {
-    category: categories[5],
+    id: '6',
+    category: categoriesMock[5],
     date: new Date(),
     description: 'Pago nomina',
     mount: 70000,
