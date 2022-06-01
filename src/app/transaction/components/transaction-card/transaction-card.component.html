@@ -1,0 +1,15 @@
+<div
+  class="flex flex-row justify-between p-4 shadow-md mb-2 rounded-md bg-white"
+>
+  <div class="flex flex-row">
+    <fa-icon [icon]="getIcon()"></fa-icon>
+    <p class="ml-2">{{ categoryName | titlecase }}</p>
+  </div>
+  <div [class]="getMountClass()">
+    <fa-icon
+      [icon]="getTransactionTypeIcon()"
+      *ngIf="transactionType !== 'MOVEMENT'"
+    ></fa-icon>
+    {{ mount | currency }}
+  </div>
+</div>
