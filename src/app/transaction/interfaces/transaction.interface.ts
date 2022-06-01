@@ -11,7 +11,22 @@ export interface TransactionCategory {
   id: string;
   name: string;
   description: string;
-  picture_url: string;
+  iconType: TransactionIconType;
+}
+
+export enum TransactionIconType {
+  TRANSPORT = 'TRANSPORT',
+  LEADING = 'LEADING',
+  OTHERS = 'OTHERS',
+  HOME = 'HOME',
+  ROUTINE = 'ROUTINE',
+  FOOD = 'FOOD',
+  FAMILY = 'FAMILY',
+  GIFS = 'GIFS',
+  EDUCATION = 'EDUCATION',
+  COFFEE = 'COFFEE',
+  HEALTH = 'HEALTH',
+  WORK = 'WORK',
 }
 
 export enum TransactionType {

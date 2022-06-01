@@ -1,6 +1,7 @@
 import {
   Transaction,
   TransactionCategory,
+  TransactionIconType,
   TransactionType,
 } from '../interfaces/transaction.interface';
 
@@ -8,38 +9,38 @@ export const categoriesMock: TransactionCategory[] = [
   {
     id: '1',
     description: 'prestamos',
-    name: 'Prestamos',
-    picture_url: '',
+    name: 'prestamos',
+    iconType: TransactionIconType.LEADING,
   },
   {
     id: '2',
     description: 'salud',
     name: 'salud',
-    picture_url: '',
+    iconType: TransactionIconType.HEALTH,
   },
   {
     id: '3',
     description: 'familia',
     name: 'familia',
-    picture_url: '',
+    iconType: TransactionIconType.FAMILY,
   },
   {
     id: '4',
     description: 'casa',
     name: 'casa',
-    picture_url: '',
+    iconType: TransactionIconType.HOME,
   },
   {
     id: '5',
     description: 'otros',
     name: 'otros',
-    picture_url: '',
+    iconType: TransactionIconType.OTHERS,
   },
   {
     id: '6',
     description: 'trabajo',
     name: 'trabajo',
-    picture_url: '',
+    iconType: TransactionIconType.WORK,
   },
 ];
 
