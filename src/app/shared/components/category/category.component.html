@@ -1,0 +1,21 @@
+<div
+  class="flex justify-center flex-col items-center max-w-min cursor-pointer"
+  (click)="onClick()"
+>
+  <div
+    [style]="{
+      transition: '.3s',
+      backgroundColor: color,
+      borderRadius: active ? '.25rem' : '100%',
+      height: active ? '2.5rem' : '1.5rem',
+      width: active ? '2.5rem' : '1.5rem',
+      padding: active ? '1.5rem' : '1.25rem'
+    }"
+    class="flex justify-center items-center text-white transition-all"
+  >
+    <fa-icon [icon]="icon"></fa-icon>
+  </div>
+  <small [style]="{ color: color }" class="font-sans text-xs">{{
+    name | titlecase
+  }}</small>
+</div>
