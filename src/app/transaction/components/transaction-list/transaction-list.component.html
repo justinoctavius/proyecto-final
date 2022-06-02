@@ -2,7 +2,7 @@
   <div *ngFor="let transaction of transactions">
     <app-transaction-card
       [categoryName]="transaction.category.name"
-      [iconType]="transaction.category.iconType"
+      [icon]="getCategoryIcon(transaction.category.iconType)"
       [mount]="transaction.mount"
       [transactionType]="transaction.type"
     ></app-transaction-card>
