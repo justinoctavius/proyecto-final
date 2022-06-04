@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { TransactionIconType } from '../../interfaces/transaction.interface';
 import { CategoryService } from '../../services/category.service';
@@ -8,7 +8,7 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: './category-list.component.html',
 })
 export class CategoryListComponent implements OnInit {
-  selectedId: string = '';
+  @Input() categoryId: string = '';
   @Output() onSelect: EventEmitter<string> = new EventEmitter();
 
   constructor(private categoryService: CategoryService) {}
@@ -22,7 +22,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   setSelectedCategory(id: string) {
-    this.selectedId = id;
+    this.categoryId = id;
     this.onSelect.emit(id);
   }
 

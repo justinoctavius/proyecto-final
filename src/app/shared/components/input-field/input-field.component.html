@@ -1,0 +1,27 @@
+<div>
+  <label
+    [for]="name"
+    *ngIf="label"
+    class="font-sans text-sm font-semibold text-zinc-500"
+    >{{ label | titlecase }}</label
+  >
+  <div class="relative p-4">
+    <div
+      *ngIf="leftAdornment"
+      class="absolute top-1/4 left-8 font-sans font-semibold text-zinc-500"
+    >
+      {{ leftAdornment }}
+    </div>
+    <input
+      [name]="name"
+      [type]="type"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      (ngModelChange)="handler($event)"
+      class="bg-gray-300 p-4 rounded-lg font-sans w-full"
+      [ngStyle]="{
+        paddingLeft: leftAdornment ? '3.5rem' : '1rem'
+      }"
+    />
+  </div>
+</div>

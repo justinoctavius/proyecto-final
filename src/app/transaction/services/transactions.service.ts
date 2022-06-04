@@ -10,7 +10,6 @@ import { TransactionsApiService } from './transactions-api.service';
 export class TransactionsService {
   error: string = '';
   transactions: Transaction[] = [];
-  addTransactionDto: AddTransactionDto | null = null;
   updateTransactionDto: UpdateTransactionDto | null = null;
 
   constructor(private transactionApiService: TransactionsApiService) {}
@@ -19,10 +18,10 @@ export class TransactionsService {
     this.transactions = await this.transactionApiService.getTransactions();
   }
 
-  async addTransaction() {
+  async addTransaction(addTransactionDto: AddTransactionDto) {
     try {
-      if (this.addTransactionDto) {
-        await this.transactionApiService.addTransaction(this.addTransactionDto);
+      if (addTransactionDto) {
+        await this.transactionApiService.addTransaction(addTransactionDto);
         await this.getTransaction();
       }
     } catch (error: any) {

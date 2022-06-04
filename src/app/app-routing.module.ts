@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TransactionsPageComponent } from './transaction/pages/transactions-page/transactions-page.component';
 import { ExpensesPageComponent } from './transaction/pages/expenses-page/expenses-page.component';
 import { IncomesPageComponent } from './transaction/pages/incomes-page/incomes-page.component';
+import { AddTransactionPageComponent } from './transaction/pages/add-transaction-page/add-transaction-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'ingresos',
     component: IncomesPageComponent,
+  },
+  {
+    path: 'agregar-transaccion',
+    component: AddTransactionPageComponent,
   },
   {
     path: '**',
