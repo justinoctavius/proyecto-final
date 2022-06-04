@@ -1,8 +1,6 @@
 <div
-  [class]="
-    color +
-    ' w-6 h-6 p-5 rounded-full flex justify-center items-center cursor-pointer'
-  "
+  [ngStyle]="{ backgroundColor: color }"
+  class="h-6 w-6 p-5 rounded-full flex justify-center items-center cursor-pointer"
   (click)="handleOnClick()"
 >
   <fa-icon [icon]="icon"></fa-icon>

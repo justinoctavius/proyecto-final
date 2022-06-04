@@ -7,7 +7,7 @@ import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 })
 export class IconButtonComponent {
   @Input() icon: IconDefinition = faPlus;
-  @Input() color: string = 'bg-amber-500';
+  @Input() color: string = '#f59e0b';
   @Output() click: EventEmitter<void> = new EventEmitter();
 
   handleOnClick() {
