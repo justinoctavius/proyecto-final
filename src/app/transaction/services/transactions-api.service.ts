@@ -52,7 +52,7 @@ export class TransactionsApiService {
       return t;
     });
   }
-  removeTransaction(id: string) {
+  async removeTransaction(id: string) {
     this.transactions = this.transactions.filter(
       (transaction) => transaction.id !== id
     );

@@ -20,10 +20,8 @@ export class TransactionsService {
 
   async addTransaction(addTransactionDto: AddTransactionDto) {
     try {
-      if (addTransactionDto) {
-        await this.transactionApiService.addTransaction(addTransactionDto);
-        await this.getTransaction();
-      }
+      await this.transactionApiService.addTransaction(addTransactionDto);
+      await this.getTransaction();
     } catch (error: any) {
       this.error = error.error.message;
     }
@@ -37,6 +35,15 @@ export class TransactionsService {
         );
         await this.getTransaction();
       }
+    } catch (error: any) {
+      this.error = error.error.message;
+    }
+  }
+
+  async removeTransaction(id: string) {
+    try {
+      await this.transactionApiService.removeTransaction(id);
+      await this.getTransaction();
     } catch (error: any) {
       this.error = error.error.message;
     }

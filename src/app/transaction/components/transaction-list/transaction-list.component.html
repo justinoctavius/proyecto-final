@@ -1,10 +1,15 @@
 <div class="p-4">
   <div *ngFor="let transaction of transactions">
     <app-transaction-card
+      [description]="transaction.description"
+      [date]="transaction.date"
       [categoryName]="transaction.category.name"
       [icon]="getCategoryIcon(transaction.category.iconType)"
       [mount]="transaction.mount"
       [transactionType]="transaction.type"
+      [selected]="selectedId === transaction.id"
+      (cardClick)="handleCheckUncheck(transaction.id)"
+      (removeClick)="onRemoveClick(transaction.id)"
     ></app-transaction-card>
   </div>
 </div>

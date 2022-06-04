@@ -11,6 +11,7 @@ import { TransactionListComponent } from './components/transaction-list/transact
 import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
 import { TransactionsStatusComponent } from './components/transactions-status/transactions-status.component';
 import { AddTransactionPageComponent } from './pages/add-transaction-page/add-transaction-page.component';
+import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TransactionTypeComponent } from './components/transaction-type/transaction-type.component';
 
@@ -20,6 +21,7 @@ import { TransactionTypeComponent } from './components/transaction-type/transact
     TransactionListComponent,
     TransactionsStatusComponent,
     TransactionTypeComponent,
+    CategoryComponent,
     CategoryListComponent,
     TransactionsPageComponent,
     AddTransactionPageComponent,

@@ -65,7 +65,7 @@ export class AddTransactionPageComponent {
       await this.transactionService.addTransaction({
         category_id: this.categoryId,
         date: new Date(),
-        description: this.description,
+        description: this.description.toLowerCase().trim(),
         mount: this.mount,
         type: this.transactionType!,
       });

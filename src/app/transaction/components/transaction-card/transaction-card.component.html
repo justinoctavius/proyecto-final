@@ -1,15 +1,40 @@
-<div
-  class="flex flex-row justify-between p-4 shadow-md mb-2 rounded-md bg-white"
->
-  <div class="flex flex-row">
-    <fa-icon [icon]="icon"></fa-icon>
-    <p class="ml-2">{{ categoryName | titlecase }}</p>
+<div class="flex mb-2 rounded-md overflow-hidden relative">
+  <div
+    class="shadow-sm w-full bg-white"
+    style="transition: 0.3s"
+    [ngStyle]="getContainerStyles()"
+    (click)="onCardClick()"
+  >
+    <div class="flex flex-row justify-between p-4">
+      <div class="flex flex-row">
+        <fa-icon [icon]="icon"></fa-icon>
+        <p class="ml-2">{{ categoryName | titlecase }}</p>
+      </div>
+      <div [class]="getMountClass()">
+        <fa-icon
+          [icon]="getTransactionTypeIcon()"
+          *ngIf="transactionType !== 'MOVEMENT'"
+        ></fa-icon>
+        {{ mount | currency }}
+      </div>
+    </div>
+    <div class="bg-gray-50 p-4 font-sans text-xs flex justify-between">
+      <div>
+        <strong class="text-gray-700">Descripción: </strong>
+        <p class="tracking-wide">{{ description | titlecase }}</p>
+      </div>
+      <div>
+        <strong class="text-gray-700">Fecha: </strong>
+        <p class="tracking-wide">{{ date | date }}</p>
+      </div>
+    </div>
   </div>
-  <div [class]="getMountClass()">
-    <fa-icon
-      [icon]="getTransactionTypeIcon()"
-      *ngIf="transactionType !== 'MOVEMENT'"
-    ></fa-icon>
-    {{ mount | currency }}
+  <div
+    [ngStyle]="getSelectedStyles()"
+    style="transition: 0.3s"
+    class="bg-red-400 p-4 flex h-full justify-center items-center text-white absolute"
+    (click)="onRemoveClick()"
+  >
+    <fa-icon [icon]="trashIcon"></fa-icon>
   </div>
 </div>
