@@ -1,2 +1,5 @@
-<app-transactions-status></app-transactions-status>
+<app-transactions-status
+  [transactions]="transactions"
+  (byTypeChange)="onSortByTypeChange($event)"
+></app-transactions-status>
 <app-transaction-list [transactions]="transactions"></app-transaction-list>

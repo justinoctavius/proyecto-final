@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {
   TransactionFilterSortBy,
   SortByTypeTypes,
   SortByMountTypes,
 } from '../../interfaces/transaction-filter.interface';
 import { FilterButtonType } from '../../../shared/intefaces/filter-button.interface';
-import { TransactionsService } from '../../services/transactions.service';
 import { SortByDateTypes } from '../../interfaces/transaction-filter.interface';
+import { Transaction } from '../../interfaces/transaction.interface';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-transaction-filter',
@@ -16,6 +17,9 @@ export class TransactionFilterComponent {
   @Input() typeFilter: boolean = true;
   @Input() dateFilter: boolean = true;
   @Input() mountFilter: boolean = true;
+  @Input() transactions: Transaction[] = [];
+
+  @Output() byTypeChange: EventEmitter<SortByTypeTypes> = new EventEmitter();
 
   byType: TransactionFilterSortBy = {
     name: 'tipo',
@@ -40,23 +44,23 @@ export class TransactionFilterComponent {
     ],
   };
 
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(private filterService: FilterService) {}
 
-  async onSortByTypeChange(selected: FilterButtonType) {
-    await this.transactionsService.getTransactionsByType(
-      selected.value as SortByTypeTypes
-    );
+  onSortByTypeChange(selected: FilterButtonType) {
+    this.byTypeChange.emit(selected.value as SortByTypeTypes);
   }
 
   onSortByDateChange(selected: FilterButtonType) {
-    this.transactionsService.sortTransactionsByDate(
-      selected.value as SortByDateTypes
+    this.filterService.sortTransactionsByDate(
+      selected.value as SortByDateTypes,
+      this.transactions
     );
   }
 
   onSortByMountChange(selected: FilterButtonType) {
-    this.transactionsService.sortTransactionsByMount(
-      selected.value as SortByMountTypes
+    this.filterService.sortTransactionsByMount(
+      selected.value as SortByMountTypes,
+      this.transactions
     );
   }
 }

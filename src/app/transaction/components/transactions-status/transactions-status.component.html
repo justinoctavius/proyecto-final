@@ -4,6 +4,8 @@
       [typeFilter]="typeFilter"
       [dateFilter]="dateFilter"
       [mountFilter]="mountFilter"
+      [transactions]="transactions"
+      (byTypeChange)="onByTypeChange($event)"
     ></app-transaction-filter>
     <div class="flex items-end">
       <app-icon-button routerLink="/agregar-transaccion"></app-icon-button>

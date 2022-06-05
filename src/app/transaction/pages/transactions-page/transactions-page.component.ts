@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../../services/transactions.service';
+import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
 
 @Component({
   selector: 'app-transactions-page',
@@ -14,5 +15,9 @@ export class TransactionsPageComponent implements OnInit {
 
   async ngOnInit() {
     await this.transactionsService.getTransaction();
+  }
+
+  onSortByTypeChange(type: SortByTypeTypes) {
+    this.transactionsService.getTransactionsByType(type);
   }
 }
