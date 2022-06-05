@@ -1,6 +1,6 @@
 <div class="bg-white relative tracking-wide">
   <div
-    class="flex justify-between border-gray-400 p-2 shadow-sm rounded-md border-2 cursor-pointer"
+    class="flex justify-between border-gray-400 p-2 shadow-sm rounded-lg border-2 cursor-pointer"
     (click)="onClick()"
   >
     <p class="font-sans font-semibold text-gray-400">
@@ -15,7 +15,7 @@
   </div>
   <div
     *ngIf="dropdown && types.length > 0"
-    class="absolute z-10 bg-white w-full left-0 border-gray-400 border-2 rounded-md"
+    class="absolute z-10 bg-white w-full left-0 border-gray-400 border-2 rounded-lg"
   >
     <div
       *ngFor="let type of types"

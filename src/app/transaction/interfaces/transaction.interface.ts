@@ -12,6 +12,7 @@ export interface TransactionCategory {
   name: string;
   description: string;
   iconType: TransactionIconType;
+  color: string;
 }
 
 export enum TransactionIconType {

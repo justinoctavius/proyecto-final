@@ -1,9 +1,10 @@
 <div class="p-4">
-  <h2 class="text-sm font-sans mb-2 font-semibold tracking-wide text-zinc-500">
+  <h2 class="text-sm font-sans mb-2 font-semibold tracking-wide text-gray-400">
     Categorías
   </h2>
   <div
-    class="p-4 rounded-md flex flex-wrap gap-4 justify-between max-h-60 overflow-y-scroll"
+    class="p-4 justify-between grid max-h-60 overflow-y-scroll gap-8"
+    style="display: grid; grid-template-columns: repeat(auto-fill, 5rem)"
   >
     <div *ngFor="let category of categories">
       <app-category
@@ -11,6 +12,7 @@
         [icon]="getCategoryIcon(category.iconType)"
         [active]="categoryId === category.id"
         (click)="setSelectedCategory(category.id)"
+        [color]="category.color"
       ></app-category>
     </div>
   </div>

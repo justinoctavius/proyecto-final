@@ -1,34 +1,36 @@
-<div>
-  <div class="p-4">
-    <app-transaction-type
-      (change)="onTransactionTypeChange($event)"
-    ></app-transaction-type>
-  </div>
-  <div class="p-4">
-    <app-input-field
-      label="Monto"
-      type="number"
-      [value]="mount.toString()"
-      placeholder="Ingresa tu monto"
-      (valueChange)="onMountChange($event)"
-    ></app-input-field>
-  </div>
-  <app-category-list
-    (onSelect)="onCategoryChange($event)"
-    [categoryId]="categoryId"
-  ></app-category-list>
-  <div class="p-4">
-    <app-input-field
-      label="Descripción"
-      type="text"
-      [value]="description"
-      placeholder="Ingresa una descripción"
-      (valueChange)="onDescriptionChange($event)"
-    ></app-input-field>
+<div class="h-full">
+  <div>
+    <div class="p-4">
+      <app-transaction-type
+        (change)="onTransactionTypeChange($event)"
+      ></app-transaction-type>
+    </div>
+    <div class="p-4">
+      <app-input-field
+        label="Monto"
+        type="number"
+        [value]="mount.toString()"
+        placeholder="Ingresa tu monto"
+        (valueChange)="onMountChange($event)"
+      ></app-input-field>
+    </div>
+    <app-category-list
+      (onSelect)="onCategoryChange($event)"
+      [categoryId]="categoryId"
+    ></app-category-list>
+    <div class="p-4">
+      <app-input-field
+        label="Descripción"
+        type="text"
+        [value]="description"
+        placeholder="Ingresa una descripción"
+        (valueChange)="onDescriptionChange($event)"
+      ></app-input-field>
+    </div>
   </div>
   <div class="p-4">
     <button
-      class="rounded-md bg-emerald-600 p-4 w-full font-sans text-white font-semibold tracking-wider"
+      class="rounded-full bg-emerald-700 p-4 w-full font-sans text-white font-semibold tracking-wider"
       (click)="onSubmit()"
     >
       AGREGAR
