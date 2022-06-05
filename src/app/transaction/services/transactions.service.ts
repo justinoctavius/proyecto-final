@@ -6,7 +6,10 @@ import {
   TransactionType,
 } from '../interfaces/transaction.interface';
 import { TransactionsApiService } from './transactions-api.service';
-import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
+import {
+  SortByTypeTypes,
+  SortByDateTypes,
+} from '../interfaces/transaction-filter.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +42,7 @@ export class TransactionsService {
     }
   }
 
+  //TODO: remove this useless code
   async updateTransaction() {
     try {
       if (this.updateTransactionDto) {
@@ -59,5 +63,14 @@ export class TransactionsService {
     } catch (error: any) {
       this.error = error.error.message;
     }
+  }
+
+  sortTransactionsByDate(sortType: SortByDateTypes) {
+    this.transactions = this.transactions.sort((a, b) => {
+      if (sortType === SortByDateTypes.DESC) {
+        return a.date.getTime() - b.date.getTime();
+      }
+      return b.date.getTime() - a.date.getTime();
+    });
   }
 }

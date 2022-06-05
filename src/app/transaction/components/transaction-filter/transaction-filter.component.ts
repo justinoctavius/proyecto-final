@@ -5,6 +5,7 @@ import {
 } from '../../interfaces/transaction-filter.interface';
 import { FilterButtonType } from '../../../shared/intefaces/filter-button.interface';
 import { TransactionsService } from '../../services/transactions.service';
+import { SortByDateTypes } from '../../interfaces/transaction-filter.interface';
 
 @Component({
   selector: 'app-transaction-filter',
@@ -24,14 +25,20 @@ export class TransactionFilterComponent {
   byDate: TransactionFilterSortBy = {
     name: 'fecha',
     types: [
-      { value: 'ASC', desc: 'ascendente' },
-      { value: 'DESC', desc: 'descendente' },
+      { value: SortByDateTypes.ASC, desc: 'ascendente' },
+      { value: SortByDateTypes.DESC, desc: 'descendente' },
     ],
   };
 
-  onSortByTypeChange(selected: FilterButtonType) {
-    this.transactionsService.getTransactionsByType(
+  async onSortByTypeChange(selected: FilterButtonType) {
+    await this.transactionsService.getTransactionsByType(
       selected.value as SortByTypeTypes
+    );
+  }
+
+  onSortByDateChange(selected: FilterButtonType) {
+    this.transactionsService.sortTransactionsByDate(
+      selected.value as SortByDateTypes
     );
   }
 }

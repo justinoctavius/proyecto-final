@@ -17,3 +17,8 @@ export enum SortByTypeTypes {
   EXPENSIVE = 'EXPENSIVE',
   INCOMES = 'INCOMES',
 }
+
+export enum SortByDateTypes {
+  DESC = 'DESC',
+  ASC = 'ASC',
+}
