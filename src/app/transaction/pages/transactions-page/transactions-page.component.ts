@@ -17,7 +17,11 @@ export class TransactionsPageComponent implements OnInit {
     await this.transactionsService.getTransaction();
   }
 
-  onSortByTypeChange(type: SortByTypeTypes) {
-    this.transactionsService.getTransactionsByType(type);
+  async onSortByTypeChange(type: SortByTypeTypes) {
+    await this.transactionsService.getTransactionsByType(type);
+  }
+
+  async onRemoveClick(id: string) {
+    await this.transactionsService.removeTransaction(id);
   }
 }

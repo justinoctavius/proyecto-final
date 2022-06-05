@@ -2,4 +2,7 @@
   [transactions]="transactions"
   (byTypeChange)="onSortByTypeChange($event)"
 ></app-transactions-status>
-<app-transaction-list [transactions]="transactions"></app-transaction-list>
+<app-transaction-list
+  [transactions]="transactions"
+  (removeClick)="onRemoveClick($event)"
+></app-transaction-list>
