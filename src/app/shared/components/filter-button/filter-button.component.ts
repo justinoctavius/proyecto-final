@@ -8,13 +8,12 @@ import { FilterButtonType } from '../../intefaces/filter-button.interface';
 })
 export class FilterButtonComponent {
   dropdown: boolean = false;
-  @Input() types: FilterButtonType[] = [
-    { value: 'ALL', desc: 'todos' },
-    { value: 'EXPENSES', desc: 'gastos' },
-    { value: 'INCOMES', desc: 'ingresos' },
-  ];
-  @Input() name: string = 'Tipo';
-  @Input() typeSelected: FilterButtonType = this.types[0];
+  @Input() types: FilterButtonType[] = [];
+  @Input() name: string = '';
+  @Input() typeSelected: FilterButtonType = this.types[0] || {
+    value: '',
+    desc: '',
+  };
 
   @Output() change: EventEmitter<FilterButtonType> = new EventEmitter();
 
