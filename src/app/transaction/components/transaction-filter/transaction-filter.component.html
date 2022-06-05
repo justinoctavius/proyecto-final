@@ -1,0 +1,13 @@
+<div class="flex gap-2">
+  <app-filter-button
+    [name]="byType.name"
+    [types]="byType.types"
+    [typeSelected]="byType.types[0]"
+    (change)="onSortByTypeChange($event)"
+  ></app-filter-button>
+  <app-filter-button
+    [name]="byDate.name"
+    [types]="byDate.types"
+    [typeSelected]="byDate.types[0]"
+  ></app-filter-button>
+</div>

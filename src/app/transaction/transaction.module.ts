@@ -14,6 +14,7 @@ import { AddTransactionPageComponent } from './pages/add-transaction-page/add-tr
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TransactionTypeComponent } from './components/transaction-type/transaction-type.component';
+import { TransactionFilterComponent } from './components/transaction-filter/transaction-filter.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TransactionTypeComponent } from './components/transaction-type/transact
     TransactionListComponent,
     TransactionsStatusComponent,
     TransactionTypeComponent,
+    TransactionFilterComponent,
     CategoryComponent,
     CategoryListComponent,
     TransactionsPageComponent,

@@ -1,9 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { AddTransactionDto } from '../dtos/add-transaction.dto';
 import { UpdateTransactionDto } from '../dtos/update-transaction.dto';
-import { TransactionFilter } from '../interfaces/transaction-filter.interface';
-import { Transaction } from '../interfaces/transaction.interface';
+
+import {
+  SortByTypeTypes,
+  TransactionFilter,
+} from '../interfaces/transaction-filter.interface';
+import {
+  Transaction,
+  TransactionType,
+} from '../interfaces/transaction.interface';
+
 import {
   transactionsMock,
   categoriesMock,
@@ -21,6 +30,20 @@ export class TransactionsApiService {
 
   async getTransactions() {
     return this.transactions;
+  }
+  async getTransactionsByType(type: SortByTypeTypes) {
+    switch (type) {
+      case SortByTypeTypes.EXPENSIVE:
+        return this.transactions.filter(
+          (transaction) => transaction.type === TransactionType.EXPENSIVE
+        );
+      case SortByTypeTypes.INCOMES:
+        return this.transactions.filter(
+          (transaction) => transaction.type === TransactionType.INCOMES
+        );
+      default:
+        return await this.getTransactions();
+    }
   }
   async getOneTransaction(id: string) {
     return this.transactions.find((transaction) => transaction.id === id);
