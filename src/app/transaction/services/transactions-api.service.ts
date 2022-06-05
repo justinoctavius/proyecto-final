@@ -61,24 +61,10 @@ export class TransactionsApiService {
       id: (this.transactions.length + 1).toString(),
     });
   }
-  async updateTransaction(transaction: UpdateTransactionDto) {
-    this.transactions.map((t) => {
-      if (t.id === transaction.id) {
-        return {
-          ...t,
-          date: new Date(),
-          description: transaction.description || t.description,
-          mount: transaction.mount || t.mount,
-          type: transaction.type || t.type,
-        };
-      }
-      return t;
-    });
-  }
+
   async removeTransaction(id: string) {
     this.transactions = this.transactions.filter(
       (transaction) => transaction.id !== id
     );
   }
-  filterTransaction(filter: TransactionFilter) {}
 }

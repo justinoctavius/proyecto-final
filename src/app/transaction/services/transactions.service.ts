@@ -36,20 +36,6 @@ export class TransactionsService {
     }
   }
 
-  //TODO: remove this useless code
-  async updateTransaction() {
-    try {
-      if (this.updateTransactionDto) {
-        await this.transactionApiService.updateTransaction(
-          this.updateTransactionDto
-        );
-        await this.getTransaction();
-      }
-    } catch (error: any) {
-      this.error = error.error.message;
-    }
-  }
-
   async removeTransaction(id: string) {
     try {
       await this.transactionApiService.removeTransaction(id);
