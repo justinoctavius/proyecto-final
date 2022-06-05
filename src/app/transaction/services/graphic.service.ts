@@ -18,16 +18,16 @@ export class GraphicService {
     );
   }
 
-  addGraphicItem(item: GraphicItem) {
-    const indexOfItem = this.isGraphicItemAlreadyExists(item);
+  addGraphicItem(newItem: GraphicItem) {
+    const indexOfItem = this.isGraphicItemAlreadyExists(newItem);
     if (indexOfItem > -1) {
       const item = this.graphicItems[indexOfItem];
       this.graphicItems[indexOfItem] = {
         ...item,
-        value: item.value + item.value,
+        value: item.value + newItem.value,
       };
     } else {
-      this.graphicItems.push(item);
+      this.graphicItems.push(newItem);
     }
   }
 

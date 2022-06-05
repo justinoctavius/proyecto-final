@@ -11,7 +11,7 @@ export const categoriesMock: TransactionCategory[] = [
     description: 'prestamos',
     name: 'prestamos',
     iconType: TransactionIconType.LEADING,
-    color: '#ff7878',
+    color: '#ca78ff',
   },
   {
     id: '2',
@@ -25,14 +25,14 @@ export const categoriesMock: TransactionCategory[] = [
     description: 'familia',
     name: 'familia',
     iconType: TransactionIconType.FAMILY,
-    color: '#ff7878',
+    color: '#ffff89',
   },
   {
     id: '4',
     description: 'casa',
     name: 'casa',
     iconType: TransactionIconType.HOME,
-    color: '#ff7878',
+    color: '#ffdb81',
   },
   {
     id: '5',
