@@ -28,15 +28,15 @@ export class TransactionFilterComponent {
   byDate: TransactionFilterSortBy = {
     name: 'fecha',
     types: [
-      { value: SortByDateTypes.ASC, desc: 'asc' },
-      { value: SortByDateTypes.DESC, desc: 'desc' },
+      { value: SortByDateTypes.ASC, desc: 'recientes' },
+      { value: SortByDateTypes.DESC, desc: 'antiguas' },
     ],
   };
   byMount: TransactionFilterSortBy = {
     name: 'monto',
     types: [
-      { value: SortByMountTypes.ASC, desc: 'asc' },
-      { value: SortByMountTypes.DESC, desc: 'desc' },
+      { value: SortByMountTypes.ASC, desc: 'mayor' },
+      { value: SortByMountTypes.DESC, desc: 'menor' },
     ],
   };
 

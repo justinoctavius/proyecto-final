@@ -13,7 +13,7 @@ export class GraphicTransactionsComponent implements OnInit {
 
   single: GraphicItem[] = [];
   colorsDomain: string[] = [];
-  view: [number, number] = [this.getViewWidth(), 320];
+  view: [number, number] = [this.getViewWidth(), this.getViewWidth() / 1.5];
 
   // options
   gradient: boolean = false;
