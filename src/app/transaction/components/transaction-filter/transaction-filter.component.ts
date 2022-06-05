@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   TransactionFilterSortBy,
   SortByTypeTypes,
+  SortByMountTypes,
 } from '../../interfaces/transaction-filter.interface';
 import { FilterButtonType } from '../../../shared/intefaces/filter-button.interface';
 import { TransactionsService } from '../../services/transactions.service';
@@ -29,6 +30,13 @@ export class TransactionFilterComponent {
       { value: SortByDateTypes.DESC, desc: 'desc' },
     ],
   };
+  byMount: TransactionFilterSortBy = {
+    name: 'monto',
+    types: [
+      { value: SortByMountTypes.ASC, desc: 'asc' },
+      { value: SortByMountTypes.DESC, desc: 'desc' },
+    ],
+  };
 
   async onSortByTypeChange(selected: FilterButtonType) {
     await this.transactionsService.getTransactionsByType(
@@ -39,6 +47,12 @@ export class TransactionFilterComponent {
   onSortByDateChange(selected: FilterButtonType) {
     this.transactionsService.sortTransactionsByDate(
       selected.value as SortByDateTypes
+    );
+  }
+
+  onSortByMountChange(selected: FilterButtonType) {
+    this.transactionsService.sortTransactionsByMount(
+      selected.value as SortByMountTypes
     );
   }
 }

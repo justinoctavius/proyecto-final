@@ -6,6 +6,7 @@ import {
   TransactionType,
 } from '../interfaces/transaction.interface';
 import { TransactionsApiService } from './transactions-api.service';
+import { SortByMountTypes } from '../interfaces/transaction-filter.interface';
 import {
   SortByTypeTypes,
   SortByDateTypes,
@@ -71,6 +72,16 @@ export class TransactionsService {
         return a.date.getTime() - b.date.getTime();
       }
       return b.date.getTime() - a.date.getTime();
+    });
+  }
+
+  sortTransactionsByMount(sortType: SortByMountTypes) {
+    this.transactions = this.transactions.sort((a, b) => {
+      if (sortType === SortByMountTypes.DESC) {
+        return a.mount - b.mount;
+      }
+
+      return b.mount - a.mount;
     });
   }
 }

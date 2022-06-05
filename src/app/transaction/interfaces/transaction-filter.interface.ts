@@ -22,3 +22,8 @@ export enum SortByDateTypes {
   DESC = 'DESC',
   ASC = 'ASC',
 }
+
+export enum SortByMountTypes {
+  DESC = 'DESC',
+  ASC = 'ASC',
+}

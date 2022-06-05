@@ -11,4 +11,10 @@
     [typeSelected]="byDate.types[0]"
     (change)="onSortByDateChange($event)"
   ></app-filter-button>
+  <app-filter-button
+    [name]="byMount.name"
+    [types]="byMount.types"
+    [typeSelected]="byMount.types[0]"
+    (change)="onSortByMountChange($event)"
+  ></app-filter-button>
 </div>
