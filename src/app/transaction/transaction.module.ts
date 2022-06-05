@@ -15,6 +15,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TransactionTypeComponent } from './components/transaction-type/transaction-type.component';
 import { TransactionFilterComponent } from './components/transaction-filter/transaction-filter.component';
+import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,14 @@ import { TransactionFilterComponent } from './components/transaction-filter/tran
     CategoryComponent,
     CategoryListComponent,
     TransactionsPageComponent,
+    ExpensesPageComponent,
     AddTransactionPageComponent,
   ],
   imports: [BrowserModule, RouterModule, FontAwesomeModule, SharedModule],
-  exports: [TransactionsPageComponent, AddTransactionPageComponent],
+  exports: [
+    TransactionsPageComponent,
+    ExpensesPageComponent,
+    AddTransactionPageComponent,
+  ],
 })
 export class TransactionModule {}

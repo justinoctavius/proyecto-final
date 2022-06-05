@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   TransactionFilterSortBy,
   SortByTypeTypes,
@@ -13,7 +13,9 @@ import { SortByDateTypes } from '../../interfaces/transaction-filter.interface';
   templateUrl: './transaction-filter.component.html',
 })
 export class TransactionFilterComponent {
-  constructor(private transactionsService: TransactionsService) {}
+  @Input() typeFilter: boolean = true;
+  @Input() dateFilter: boolean = true;
+  @Input() mountFilter: boolean = true;
 
   byType: TransactionFilterSortBy = {
     name: 'tipo',
@@ -37,6 +39,8 @@ export class TransactionFilterComponent {
       { value: SortByMountTypes.DESC, desc: 'desc' },
     ],
   };
+
+  constructor(private transactionsService: TransactionsService) {}
 
   async onSortByTypeChange(selected: FilterButtonType) {
     await this.transactionsService.getTransactionsByType(

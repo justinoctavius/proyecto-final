@@ -1,8 +1,12 @@
 <div class="bg-white mt-4 mx-4 rounded-lg shadow-md p-4">
   <div class="flex justify-between">
-    <app-transaction-filter></app-transaction-filter>
+    <app-transaction-filter
+      [typeFilter]="typeFilter"
+      [dateFilter]="dateFilter"
+      [mountFilter]="mountFilter"
+    ></app-transaction-filter>
     <div class="flex items-end">
-      <app-icon-button routerLink="agregar-transaccion"></app-icon-button>
+      <app-icon-button routerLink="/agregar-transaccion"></app-icon-button>
     </div>
   </div>
 </div>

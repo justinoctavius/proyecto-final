@@ -1,17 +1,20 @@
 <div class="flex gap-2 flex-wrap">
   <app-filter-button
+    *ngIf="typeFilter"
     [name]="byType.name"
     [types]="byType.types"
     [typeSelected]="byType.types[0]"
     (change)="onSortByTypeChange($event)"
   ></app-filter-button>
   <app-filter-button
+    *ngIf="dateFilter"
     [name]="byDate.name"
     [types]="byDate.types"
     [typeSelected]="byDate.types[0]"
     (change)="onSortByDateChange($event)"
   ></app-filter-button>
   <app-filter-button
+    *ngIf="mountFilter"
     [name]="byMount.name"
     [types]="byMount.types"
     [typeSelected]="byMount.types[0]"
