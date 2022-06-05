@@ -25,14 +25,14 @@ export const categoriesMock: TransactionCategory[] = [
     description: 'familia',
     name: 'familia',
     iconType: TransactionIconType.FAMILY,
-    color: '#ffff89',
+    color: '#c0c03e',
   },
   {
     id: '4',
     description: 'casa',
     name: 'casa',
     iconType: TransactionIconType.HOME,
-    color: '#ffdb81',
+    color: '#005189',
   },
   {
     id: '5',
@@ -53,14 +53,14 @@ export const categoriesMock: TransactionCategory[] = [
     description: 'educación',
     name: 'educación',
     iconType: TransactionIconType.EDUCATION,
-    color: '#d0ff78',
+    color: '#008957',
   },
   {
     id: '8',
     description: 'café',
     name: 'café',
     iconType: TransactionIconType.COFFEE,
-    color: '#ffba78',
+    color: '#c0633e',
   },
   {
     id: '9',
