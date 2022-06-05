@@ -7,6 +7,8 @@ import { TransactionsService } from '../../services/transactions.service';
   templateUrl: './incomes-page.component.html',
 })
 export class IncomesPageComponent {
+  transactionType: SortByTypeTypes = SortByTypeTypes.INCOMES;
+
   constructor(private transactionsService: TransactionsService) {}
 
   async ngOnInit() {

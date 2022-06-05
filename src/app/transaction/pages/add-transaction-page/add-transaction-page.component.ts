@@ -19,8 +19,6 @@ export class AddTransactionPageComponent {
 
   onMountChange(event: string) {
     this.mount = Number(event);
-    console.log(event);
-    console.log(this.mount);
   }
 
   onDescriptionChange(description: string) {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -17,6 +18,7 @@ import { TransactionTypeComponent } from './components/transaction-type/transact
 import { TransactionFilterComponent } from './components/transaction-filter/transaction-filter.component';
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomesPageComponent } from './pages/incomes-page/incomes-page.component';
+import { GraphicTransactionsComponent } from './components/graphic-transactions/graphic-transactions.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,19 @@ import { IncomesPageComponent } from './pages/incomes-page/incomes-page.componen
     TransactionFilterComponent,
     CategoryComponent,
     CategoryListComponent,
+    GraphicTransactionsComponent,
     TransactionsPageComponent,
     ExpensesPageComponent,
     IncomesPageComponent,
     AddTransactionPageComponent,
   ],
-  imports: [BrowserModule, RouterModule, FontAwesomeModule, SharedModule],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    FontAwesomeModule,
+    SharedModule,
+    NgxChartsModule,
+  ],
   exports: [
     TransactionsPageComponent,
     ExpensesPageComponent,

@@ -7,6 +7,8 @@ import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
   templateUrl: './expenses-page.component.html',
 })
 export class ExpensesPageComponent {
+  transactionType: SortByTypeTypes = SortByTypeTypes.EXPENSIVE;
+
   constructor(private transactionsService: TransactionsService) {}
 
   async ngOnInit() {
