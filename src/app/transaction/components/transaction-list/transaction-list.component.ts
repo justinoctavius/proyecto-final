@@ -5,7 +5,6 @@ import {
   TransactionIconType,
 } from '../../interfaces/transaction.interface';
 import { CategoryService } from '../../services/category.service';
-import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
   selector: 'app-transaction-list',
@@ -15,11 +14,9 @@ export class TransactionListComponent {
   selectedId: string = '';
   @Input() transactions: Transaction[] = [];
   @Output() onTransactionPress: EventEmitter<Transaction> = new EventEmitter();
+  @Output() removeClick: EventEmitter<string> = new EventEmitter();
 
-  constructor(
-    private categoryService: CategoryService,
-    private transactionsService: TransactionsService
-  ) {}
+  constructor(private categoryService: CategoryService) {}
 
   getCategoryIcon(type: TransactionIconType) {
     return this.categoryService.getCategoryIcon(type);
@@ -29,8 +26,8 @@ export class TransactionListComponent {
     this.onTransactionPress.emit(event);
   }
 
-  async onRemoveClick(id: string) {
-    await this.transactionsService.removeTransaction(id);
+  onRemoveClick(id: string) {
+    this.removeClick.emit(id);
   }
 
   handleCheckUncheck(id: string) {

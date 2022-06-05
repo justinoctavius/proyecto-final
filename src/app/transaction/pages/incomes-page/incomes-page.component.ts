@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
-import { TransactionsService } from '../../services/transactions.service';
-
+import { IncomesService } from '../../services/incomes.service';
 @Component({
   selector: 'app-incomes-page',
   templateUrl: './incomes-page.component.html',
@@ -9,15 +8,17 @@ import { TransactionsService } from '../../services/transactions.service';
 export class IncomesPageComponent {
   transactionType: SortByTypeTypes = SortByTypeTypes.INCOMES;
 
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(private incomesService: IncomesService) {}
 
   async ngOnInit() {
-    await this.transactionsService.getTransactionsByType(
-      SortByTypeTypes.INCOMES
-    );
+    await this.incomesService.getTransactions();
   }
 
   get transactions() {
-    return this.transactionsService.transactions;
+    return this.incomesService.transactions;
+  }
+
+  onRemoveClick(id: string) {
+    this.incomesService.removeTransaction(id);
   }
 }
