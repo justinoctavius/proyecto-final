@@ -46,15 +46,14 @@ export class GraphicService {
     this.addColor(transaction.category.color);
   }
 
-  mapTransactionToGraphicItem() {
-    this.transactionsService.transactions.map((transaction) => {
+  mapTransactionToGraphicItem(transactions: Transaction[]) {
+    transactions.map((transaction) => {
       this.addTransactionToGraphicItems(transaction);
     });
   }
 
-  async getGraphicItems(transactionType: SortByTypeTypes) {
+  async getGraphicItems(transactions: Transaction[]) {
     this.graphicItems = [];
-    await this.transactionsService.getTransactionsByType(transactionType);
-    this.mapTransactionToGraphicItem();
+    this.mapTransactionToGraphicItem(transactions);
   }
 }
