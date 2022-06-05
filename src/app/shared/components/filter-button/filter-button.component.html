@@ -1,0 +1,31 @@
+<div class="bg-white relative tracking-wide">
+  <div
+    class="flex justify-between border-gray-400 p-2 shadow-sm rounded-md border-2 cursor-pointer"
+    (click)="onClick()"
+  >
+    <p class="font-sans font-semibold text-gray-400">
+      {{ name | titlecase }} :
+      <span class="font-normal text-gray-900">{{
+        typeSelected.desc | titlecase
+      }}</span>
+    </p>
+    <div class="text-gray-900 ml-1">
+      <fa-icon [icon]="getDropdownIcon()"></fa-icon>
+    </div>
+  </div>
+  <div
+    *ngIf="dropdown"
+    class="absolute z-10 bg-white w-full left-0 border-gray-400 border-2 rounded-md"
+  >
+    <div
+      *ngFor="let type of types"
+      class="text-gray-900 border-b-2 border-gray-100 p-2 cursor-pointer"
+      [ngStyle]="{
+        backgroundColor: typeSelected.value === type.value ? '#e5e7eb' : 'white'
+      }"
+      (click)="onSelect(type)"
+    >
+      {{ type.desc | titlecase }}
+    </div>
+  </div>
+</div>
