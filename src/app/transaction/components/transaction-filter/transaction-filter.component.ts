@@ -25,8 +25,8 @@ export class TransactionFilterComponent {
   byDate: TransactionFilterSortBy = {
     name: 'fecha',
     types: [
-      { value: SortByDateTypes.ASC, desc: 'ascendente' },
-      { value: SortByDateTypes.DESC, desc: 'descendente' },
+      { value: SortByDateTypes.ASC, desc: 'asc' },
+      { value: SortByDateTypes.DESC, desc: 'desc' },
     ],
   };
 

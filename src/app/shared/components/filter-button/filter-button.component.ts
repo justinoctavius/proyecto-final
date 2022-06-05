@@ -20,6 +20,7 @@ export class FilterButtonComponent {
   onSelect(typeSelected: FilterButtonType) {
     this.typeSelected = typeSelected;
     this.change.emit(this.typeSelected);
+    this.dropdown = false;
   }
 
   onClick() {
