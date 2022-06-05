@@ -1,6 +1,7 @@
 import { TransactionsService } from './../../services/transactions.service';
 import { Component } from '@angular/core';
 import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
+import { ExpensiveService } from '../../services/expensive.service';
 
 @Component({
   selector: 'app-expenses-page',
@@ -9,15 +10,17 @@ import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
 export class ExpensesPageComponent {
   transactionType: SortByTypeTypes = SortByTypeTypes.EXPENSIVE;
 
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(private expensiveService: ExpensiveService) {}
 
   async ngOnInit() {
-    await this.transactionsService.getTransactionsByType(
-      SortByTypeTypes.EXPENSIVE
-    );
+    await this.expensiveService.getTransactions();
   }
 
   get transactions() {
-    return this.transactionsService.transactions;
+    return this.expensiveService.transactions;
+  }
+
+  onRemoveClick(id: string) {
+    this.expensiveService.removeTransaction(id);
   }
 }
