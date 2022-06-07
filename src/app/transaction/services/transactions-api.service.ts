@@ -2,12 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { AddTransactionDto } from '../dtos/add-transaction.dto';
-import { UpdateTransactionDto } from '../dtos/update-transaction.dto';
 
-import {
-  SortByTypeTypes,
-  TransactionFilter,
-} from '../interfaces/transaction-filter.interface';
+import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
 import {
   Transaction,
   TransactionType,
