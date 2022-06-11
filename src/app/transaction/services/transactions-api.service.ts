@@ -13,6 +13,8 @@ import {
   transactionsMock,
   categoriesMock,
 } from '../constants/mock-data.constants';
+import { config } from 'src/app/config';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +27,10 @@ export class TransactionsApiService {
   }
 
   async getTransactions() {
-    return this.transactions;
+    const result = this.http.get<Transaction[]>(
+      `${config.envs.api_url}${config.paths.transactions}`
+    );
+    return await lastValueFrom(result);
   }
   async getTransactionsByType(type: SortByTypeTypes) {
     switch (type) {
