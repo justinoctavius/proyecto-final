@@ -53,8 +53,7 @@ export class TransactionsApiService {
   }
 
   async removeTransaction(id: string) {
-    this.transactions = this.transactions.filter(
-      (transaction) => transaction.id !== id
-    );
+    const result = this.http.delete(`${transaction_url}/${id}`);
+    return await lastValueFrom(result);
   }
 }
