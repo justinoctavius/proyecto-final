@@ -9,12 +9,11 @@ import {
   TransactionType,
 } from '../interfaces/transaction.interface';
 
-import {
-  transactionsMock,
-  categoriesMock,
-} from '../constants/mock-data.constants';
+import { transactionsMock } from '../constants/mock-data.constants';
 import { config } from 'src/app/config';
 import { lastValueFrom } from 'rxjs';
+
+const transaction_url = `${config.envs.api_url}${config.paths.transactions}`;
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +26,7 @@ export class TransactionsApiService {
   }
 
   async getTransactions() {
-    const result = this.http.get<Transaction[]>(
-      `${config.envs.api_url}${config.paths.transactions}`
-    );
+    const result = this.http.get<Transaction[]>(transaction_url);
     return await lastValueFrom(result);
   }
   async getTransactionsByType(type: SortByTypeTypes) {
@@ -49,18 +46,10 @@ export class TransactionsApiService {
   async getOneTransaction(id: string) {
     return this.transactions.find((transaction) => transaction.id === id);
   }
+
   async addTransaction(transaction: AddTransactionDto) {
-    const category = categoriesMock.find(
-      (category) => category.id === transaction.category_id
-    );
-    if (!category) {
-      throw 'category not found';
-    }
-    this.transactions.push({
-      ...transaction,
-      category,
-      id: (this.transactions.length + 1).toString(),
-    });
+    const result = this.http.post(transaction_url, { ...transaction });
+    return await lastValueFrom(result);
   }
 
   async removeTransaction(id: string) {
