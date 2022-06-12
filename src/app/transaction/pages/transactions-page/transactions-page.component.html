@@ -1,6 +1,7 @@
 <app-transactions-status
   [transactions]="transactions"
   (byTypeChange)="onSortByTypeChange($event)"
+  (byDateChange)="onFilterByDateChange($event)"
 ></app-transactions-status>
 <app-transaction-list
   [transactions]="transactions"

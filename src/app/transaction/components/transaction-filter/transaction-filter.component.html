@@ -6,13 +6,19 @@
     [typeSelected]="byType.types[0]"
     (change)="onSortByTypeChange($event)"
   ></app-filter-button>
-  <app-filter-button
+  <!-- <app-filter-button
     *ngIf="dateFilter"
     [name]="byDate.name"
     [types]="byDate.types"
     [typeSelected]="byDate.types[0]"
     (change)="onSortByDateChange($event)"
-  ></app-filter-button>
+  ></app-filter-button> -->
+  <app-filter-date-button
+    [name]="byDate.name"
+    *ngIf="dateFilter"
+    (changeDate)="onFilterByDateChange($event)"
+  >
+  </app-filter-date-button>
   <app-filter-button
     *ngIf="mountFilter"
     [name]="byMount.name"

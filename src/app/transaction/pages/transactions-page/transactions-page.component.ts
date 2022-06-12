@@ -24,4 +24,8 @@ export class TransactionsPageComponent implements OnInit {
   async onRemoveClick(id: string) {
     await this.transactionsService.removeTransaction(id);
   }
+
+  async onFilterByDateChange(date: Date) {
+    await this.transactionsService.getTransactionsByDate(date);
+  }
 }

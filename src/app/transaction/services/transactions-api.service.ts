@@ -30,19 +30,29 @@ export class TransactionsApiService {
     return await lastValueFrom(result);
   }
   async getTransactionsByType(type: SortByTypeTypes) {
-    switch (type) {
-      case SortByTypeTypes.EXPENSIVE:
-        return this.transactions.filter(
-          (transaction) => transaction.type === TransactionType.EXPENSIVE
-        );
-      case SortByTypeTypes.INCOMES:
-        return this.transactions.filter(
-          (transaction) => transaction.type === TransactionType.INCOMES
-        );
-      default:
-        return await this.getTransactions();
+    if (type === SortByTypeTypes.ALL) {
+      return await this.getTransactions();
     }
+    const result = this.http.get<Transaction[]>(
+      `${transaction_url}?type=${type}`
+    );
+    return await lastValueFrom(result);
   }
+
+  async getTransactionByDate(date: Date) {
+    const result = this.http.get<Transaction[]>(
+      `${transaction_url}?date=${date}`
+    );
+    return await lastValueFrom(result);
+  }
+
+  async getTransactionByMount(mount: number) {
+    const result = this.http.get<Transaction[]>(
+      `${transaction_url}?mount=${mount}`
+    );
+    return await lastValueFrom(result);
+  }
+
   async getOneTransaction(id: string) {
     return this.transactions.find((transaction) => transaction.id === id);
   }

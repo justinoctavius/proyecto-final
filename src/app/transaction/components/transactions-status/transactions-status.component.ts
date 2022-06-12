@@ -13,8 +13,13 @@ export class TransactionsStatusComponent {
   @Input() transactions: Transaction[] = [];
 
   @Output() byTypeChange: EventEmitter<SortByTypeTypes> = new EventEmitter();
+  @Output() byDateChange: EventEmitter<Date> = new EventEmitter();
 
   onByTypeChange(type: SortByTypeTypes) {
     this.byTypeChange.emit(type);
+  }
+
+  onByDateChange(date: Date) {
+    this.byDateChange.emit(date);
   }
 }

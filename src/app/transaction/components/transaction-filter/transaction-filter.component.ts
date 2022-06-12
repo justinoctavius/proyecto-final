@@ -20,6 +20,7 @@ export class TransactionFilterComponent {
   @Input() transactions: Transaction[] = [];
 
   @Output() byTypeChange: EventEmitter<SortByTypeTypes> = new EventEmitter();
+  @Output() byDateChange: EventEmitter<Date> = new EventEmitter();
 
   byType: TransactionFilterSortBy = {
     name: 'tipo',
@@ -62,5 +63,9 @@ export class TransactionFilterComponent {
       selected.value as SortByMountTypes,
       this.transactions
     );
+  }
+
+  onFilterByDateChange(date: Date) {
+    this.byDateChange.emit(date);
   }
 }

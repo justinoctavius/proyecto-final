@@ -25,6 +25,12 @@ export class TransactionsService {
     );
   }
 
+  async getTransactionsByDate(date: Date) {
+    this.transactions = await this.transactionApiService.getTransactionByDate(
+      date
+    );
+  }
+
   async addTransaction(addTransactionDto: AddTransactionDto) {
     try {
       await this.transactionApiService.addTransaction(addTransactionDto);
