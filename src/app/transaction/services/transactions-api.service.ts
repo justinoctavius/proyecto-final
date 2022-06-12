@@ -3,13 +3,9 @@ import { Injectable } from '@angular/core';
 
 import { AddTransactionDto } from '../dtos/add-transaction.dto';
 
-import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
-import {
-  Transaction,
-  TransactionType,
-} from '../interfaces/transaction.interface';
+import { TransactionFilter } from '../interfaces/transaction-filter.interface';
+import { Transaction } from '../interfaces/transaction.interface';
 
-import { transactionsMock } from '../constants/mock-data.constants';
 import { config } from 'src/app/config';
 import { lastValueFrom } from 'rxjs';
 
@@ -19,22 +15,16 @@ const transaction_url = `${config.envs.api_url}${config.paths.transactions}`;
   providedIn: 'root',
 })
 export class TransactionsApiService {
-  private transactions: Transaction[];
+  private transactions: Transaction[] = [];
 
-  constructor(private http: HttpClient) {
-    this.transactions = transactionsMock;
-  }
+  constructor(private http: HttpClient) {}
 
   async getTransactions() {
     const result = this.http.get<Transaction[]>(transaction_url);
     return await lastValueFrom(result);
   }
 
-  async getTransactionByFilter(filters: {
-    mount?: number;
-    date?: Date;
-    type?: SortByTypeTypes;
-  }) {
+  async getTransactionByFilter(filters: TransactionFilter) {
     const mountFilter = filters.mount ? `&mount=${filters.mount}` : '';
     const typeFilter = filters.type ? `&type=${filters.type}` : '';
     const dateFilter = filters.date ? `&date=${filters.date}` : '';

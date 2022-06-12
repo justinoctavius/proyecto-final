@@ -2,12 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {
   TransactionFilterSortBy,
   SortByTypeTypes,
-  SortByMountTypes,
 } from '../../interfaces/transaction-filter.interface';
 import { FilterButtonType } from '../../../shared/intefaces/filter-button.interface';
-import { SortByDateTypes } from '../../interfaces/transaction-filter.interface';
-import { Transaction } from '../../interfaces/transaction.interface';
-import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-transaction-filter',

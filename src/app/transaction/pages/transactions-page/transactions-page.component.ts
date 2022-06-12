@@ -1,6 +1,7 @@
+import { SortByTypeTypes } from './../../interfaces/transaction-filter.interface';
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../../services/transactions.service';
-import { SortByTypeTypes } from '../../interfaces/transaction-filter.interface';
+import { TransactionType } from '../../interfaces/transaction.interface';
 
 @Component({
   selector: 'app-transactions-page',
@@ -17,8 +18,22 @@ export class TransactionsPageComponent implements OnInit {
     await this.transactionsService.getTransaction();
   }
 
-  async onSortByTypeChange(type: SortByTypeTypes) {
-    await this.transactionsService.getTransactionsByType(type);
+  async onFilterByTypeChange(type: SortByTypeTypes) {
+    switch (type) {
+      case SortByTypeTypes.INCOMES:
+        await this.transactionsService.getTransactionsByFilter({
+          type: TransactionType.INCOMES,
+        });
+        break;
+      case SortByTypeTypes.EXPENSIVE:
+        await this.transactionsService.getTransactionsByFilter({
+          type: TransactionType.EXPENSIVE,
+        });
+        break;
+      default:
+        await this.transactionsService.getTransactionsByFilter({});
+        break;
+    }
   }
 
   async onRemoveClick(id: string) {
@@ -26,10 +41,10 @@ export class TransactionsPageComponent implements OnInit {
   }
 
   async onFilterByDateChange(date: Date) {
-    await this.transactionsService.getTransactionsByDate(date);
+    await this.transactionsService.getTransactionsByFilter({ date });
   }
 
   async onFilterByMountChange(mount: number) {
-    await this.transactionsService.getTransactionsByMount(mount);
+    await this.transactionsService.getTransactionsByFilter({ mount });
   }
 }

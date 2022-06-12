@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { TransactionsApiService } from './transactions-api.service';
-import { Transaction } from '../interfaces/transaction.interface';
-import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
+import {
+  Transaction,
+  TransactionType,
+} from '../interfaces/transaction.interface';
+import { TransactionFilter } from '../interfaces/transaction-filter.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +17,7 @@ export class IncomesService {
   async getTransactions() {
     this.transactions =
       await this.transactionsApiService.getTransactionByFilter({
-        type: SortByTypeTypes.INCOMES,
+        type: TransactionType.INCOMES,
       });
   }
 
@@ -27,24 +30,12 @@ export class IncomesService {
     }
   }
 
-  async getTransactionByDate(date: Date) {
+  async getTransactionsByFilter(filter: TransactionFilter) {
     try {
       this.transactions =
         await this.transactionsApiService.getTransactionByFilter({
-          date,
-          type: SortByTypeTypes.INCOMES,
-        });
-    } catch (error: any) {
-      this.error = error.error.message;
-    }
-  }
-
-  async getTransactionByMount(mount: number) {
-    try {
-      this.transactions =
-        await this.transactionsApiService.getTransactionByFilter({
-          mount,
-          type: SortByTypeTypes.INCOMES,
+          ...filter,
+          type: TransactionType.INCOMES,
         });
     } catch (error: any) {
       this.error = error.error.message;

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
-import { Transaction } from '../interfaces/transaction.interface';
+import { TransactionFilter } from '../interfaces/transaction-filter.interface';
+import {
+  Transaction,
+  TransactionType,
+} from '../interfaces/transaction.interface';
 import { TransactionsApiService } from './transactions-api.service';
 
 @Injectable({
@@ -14,7 +17,7 @@ export class ExpensiveService {
   async getTransactions() {
     this.transactions =
       await this.transactionsApiService.getTransactionByFilter({
-        type: SortByTypeTypes.EXPENSIVE,
+        type: TransactionType.EXPENSIVE,
       });
   }
 
@@ -27,11 +30,11 @@ export class ExpensiveService {
     }
   }
 
-  async getTransactionsByFilter(filters: any) {
+  async getTransactionsByFilter(filters: TransactionFilter) {
     this.transactions =
       await this.transactionsApiService.getTransactionByFilter({
         ...filters,
-        type: SortByTypeTypes.EXPENSIVE,
+        type: TransactionType.EXPENSIVE,
       });
   }
 }

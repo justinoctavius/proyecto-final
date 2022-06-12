@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AddTransactionDto } from '../dtos/add-transaction.dto';
-import { Transaction } from '../interfaces/transaction.interface';
+import {
+  Transaction,
+  TransactionType,
+} from '../interfaces/transaction.interface';
 import { TransactionsApiService } from './transactions-api.service';
-import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
+import { TransactionFilter } from '../interfaces/transaction-filter.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,21 +22,9 @@ export class TransactionsService {
     this.transactions = await this.transactionApiService.getTransactions();
   }
 
-  async getTransactionsByType(type: SortByTypeTypes) {
+  async getTransactionsByFilter(filter: TransactionFilter) {
     this.transactions = await this.transactionApiService.getTransactionByFilter(
-      { type }
-    );
-  }
-
-  async getTransactionsByDate(date: Date) {
-    this.transactions = await this.transactionApiService.getTransactionByFilter(
-      { date }
-    );
-  }
-
-  async getTransactionsByMount(mount: number) {
-    this.transactions = await this.transactionApiService.getTransactionByFilter(
-      { mount }
+      filter
     );
   }
 

@@ -23,10 +23,10 @@ export class IncomesPageComponent {
   }
 
   onFilterByDateChange(date: Date) {
-    this.incomesService.getTransactionByDate(date);
+    this.incomesService.getTransactionsByFilter({ date });
   }
 
   onFilterByMountChange(mount: number) {
-    this.incomesService.getTransactionByMount(mount);
+    this.incomesService.getTransactionsByFilter({ mount });
   }
 }
