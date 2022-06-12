@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  TransactionCategory,
-  TransactionType,
-} from '../../interfaces/transaction.interface';
+import { TransactionType } from '../../interfaces/transaction.interface';
 import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
@@ -10,6 +7,7 @@ import { TransactionsService } from '../../services/transactions.service';
   templateUrl: './add-transaction-page.component.html',
 })
 export class AddTransactionPageComponent {
+  date?: Date;
   mount: number = 0;
   description: string = '';
   categoryId: string = '';
@@ -23,6 +21,10 @@ export class AddTransactionPageComponent {
 
   onDescriptionChange(description: string) {
     this.description = description;
+  }
+
+  onDateChange(date: Date) {
+    this.date = date;
   }
 
   onCategoryChange(categoryId: string) {
@@ -49,6 +51,11 @@ export class AddTransactionPageComponent {
     if (!this.transactionType) {
       return false;
     }
+
+    if (!this.date) {
+      return false;
+    }
+
     return true;
   }
 
@@ -56,13 +63,14 @@ export class AddTransactionPageComponent {
     this.mount = 0;
     this.description = '';
     this.categoryId = '';
+    this.date = undefined;
   }
 
   async onSubmit() {
     if (this.isFormValid()) {
       await this.transactionService.addTransaction({
         category_id: this.categoryId,
-        date: new Date(),
+        date: this.date || new Date(),
         description: this.description.toLowerCase().trim(),
         mount: this.mount,
         type: this.transactionType!,

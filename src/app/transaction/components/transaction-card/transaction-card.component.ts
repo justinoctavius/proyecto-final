@@ -33,6 +33,10 @@ export class TransactionCardComponent {
     return faCaretDown;
   }
 
+  get correctDate() {
+    return new Date(this.date).setUTCHours(24);
+  }
+
   getMountClass() {
     if (this.transactionType === TransactionType.INCOMES) {
       return 'font-bold text-green-700';

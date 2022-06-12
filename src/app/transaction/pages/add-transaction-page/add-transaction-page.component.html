@@ -14,6 +14,14 @@
         (valueChange)="onMountChange($event)"
       ></app-input-field>
     </div>
+    <div class="p-4">
+      <app-input-field
+        label="Fecha"
+        type="date"
+        [value]="date"
+        (valueChange)="onDateChange($event)"
+      ></app-input-field>
+    </div>
     <app-category-list
       (onSelect)="onCategoryChange($event)"
       [categoryId]="categoryId"

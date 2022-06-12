@@ -10,9 +10,9 @@ export class InputFieldComponent {
   @Input() placeholder: string = '';
   @Input() name: string = 'input';
   @Input() leftAdornment: string = '';
-  @Input() value: string = '';
+  @Input() value: any = '';
 
-  @Output() valueChange: EventEmitter<string> = new EventEmitter();
+  @Output() valueChange: EventEmitter<any> = new EventEmitter();
 
   handler(event: any) {
     this.value = event;
