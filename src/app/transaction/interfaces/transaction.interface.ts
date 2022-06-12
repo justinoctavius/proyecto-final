@@ -11,7 +11,7 @@ export interface TransactionCategory {
   id: string;
   name: string;
   description: string;
-  iconType: TransactionIconType;
+  icon_type: TransactionIconType;
   color: string;
 }
 

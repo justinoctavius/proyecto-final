@@ -12,7 +12,7 @@ import { SortByTypeTypes } from '../interfaces/transaction-filter.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class FilterService {
+export class SorterService {
   sortTransactionsByDate(
     sortType: SortByDateTypes,
     transactions: Transaction[]

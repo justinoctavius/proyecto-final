@@ -9,7 +9,7 @@
     <div *ngFor="let category of categories">
       <app-category
         [name]="category.name"
-        [icon]="getCategoryIcon(category.iconType)"
+        [icon]="getCategoryIcon(category.icon_type)"
         [active]="categoryId === category.id"
         (click)="setSelectedCategory(category.id)"
         [color]="category.color"

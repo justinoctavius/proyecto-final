@@ -6,7 +6,7 @@ import {
   TransactionFilterSortBy,
 } from '../../interfaces/transaction-filter.interface';
 import { Transaction } from '../../interfaces/transaction.interface';
-import { FilterService } from '../../services/filter.service';
+import { SorterService } from '../../services/sorter.service';
 
 @Component({
   selector: 'app-transaction-sorter',
@@ -14,7 +14,7 @@ import { FilterService } from '../../services/filter.service';
 })
 export class TransactionSorterComponent {
   @Input() transactions: Transaction[] = [];
-  constructor(private filterService: FilterService) {}
+  constructor(private sorterService: SorterService) {}
 
   byDate: TransactionFilterSortBy = {
     name: 'fecha',
@@ -32,14 +32,14 @@ export class TransactionSorterComponent {
   };
 
   onSortByDateChange(selected: FilterButtonType) {
-    this.filterService.sortTransactionsByDate(
+    this.sorterService.sortTransactionsByDate(
       selected.value as SortByDateTypes,
       this.transactions
     );
   }
 
   onSortByMountChange(selected: FilterButtonType) {
-    this.filterService.sortTransactionsByMount(
+    this.sorterService.sortTransactionsByMount(
       selected.value as SortByMountTypes,
       this.transactions
     );
