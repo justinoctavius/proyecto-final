@@ -9,6 +9,7 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { FormsModule } from '@angular/forms';
 import { FilterButtonComponent } from './components/filter-button/filter-button.component';
+import { FilterDateButtonComponent } from './components/filter-date-button/filter-date-button.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FilterButtonComponent } from './components/filter-button/filter-button.
     IconButtonComponent,
     InputFieldComponent,
     FilterButtonComponent,
+    FilterDateButtonComponent,
   ],
   imports: [BrowserModule, RouterModule, FormsModule, FontAwesomeModule],
   exports: [
@@ -23,6 +25,7 @@ import { FilterButtonComponent } from './components/filter-button/filter-button.
     IconButtonComponent,
     InputFieldComponent,
     FilterButtonComponent,
+    FilterDateButtonComponent,
   ],
 })
 export class SharedModule {}
