@@ -14,6 +14,7 @@ export class TransactionsStatusComponent {
 
   @Output() byTypeChange: EventEmitter<SortByTypeTypes> = new EventEmitter();
   @Output() byDateChange: EventEmitter<Date> = new EventEmitter();
+  @Output() byMountChange: EventEmitter<number> = new EventEmitter();
 
   onByTypeChange(type: SortByTypeTypes) {
     this.byTypeChange.emit(type);
@@ -21,5 +22,9 @@ export class TransactionsStatusComponent {
 
   onByDateChange(date: Date) {
     this.byDateChange.emit(date);
+  }
+
+  onByMountChange(mount: number) {
+    this.byMountChange.emit(mount);
   }
 }

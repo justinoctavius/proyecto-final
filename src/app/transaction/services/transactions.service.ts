@@ -31,6 +31,12 @@ export class TransactionsService {
     );
   }
 
+  async getTransactionsByMount(mount: number) {
+    this.transactions = await this.transactionApiService.getTransactionByMount(
+      mount
+    );
+  }
+
   async addTransaction(addTransactionDto: AddTransactionDto) {
     try {
       await this.transactionApiService.addTransaction(addTransactionDto);

@@ -7,6 +7,7 @@
       [transactions]="transactions"
       (byTypeChange)="onByTypeChange($event)"
       (byDateChange)="onByDateChange($event)"
+      (byMountChange)="onByMountChange($event)"
     ></app-transaction-filter>
     <div class="flex items-end">
       <app-icon-button routerLink="/agregar-transaccion"></app-icon-button>

@@ -28,4 +28,8 @@ export class TransactionsPageComponent implements OnInit {
   async onFilterByDateChange(date: Date) {
     await this.transactionsService.getTransactionsByDate(date);
   }
+
+  async onFilterByMountChange(mount: number) {
+    await this.transactionsService.getTransactionsByMount(mount);
+  }
 }

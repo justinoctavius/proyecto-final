@@ -19,11 +19,15 @@
     (changeDate)="onFilterByDateChange($event)"
   >
   </app-filter-date-button>
-  <app-filter-button
+  <app-filter-mount-button
+    *ngIf="mountFilter"
+    (changeMount)="onFilterByMountChange($event)"
+  ></app-filter-mount-button>
+  <!-- <app-filter-button
     *ngIf="mountFilter"
     [name]="byMount.name"
     [types]="byMount.types"
     [typeSelected]="byMount.types[0]"
     (change)="onSortByMountChange($event)"
-  ></app-filter-button>
+  ></app-filter-button> -->
 </div>
