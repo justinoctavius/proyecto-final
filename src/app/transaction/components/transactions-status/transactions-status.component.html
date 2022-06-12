@@ -1,10 +1,9 @@
-<div class="bg-white mt-4 mx-4 rounded-lg shadow-md p-4">
+<div class="bg-white m-4 rounded-lg shadow-md p-4">
   <div class="flex justify-between">
     <app-transaction-filter
       [typeFilter]="typeFilter"
       [dateFilter]="dateFilter"
       [mountFilter]="mountFilter"
-      [transactions]="transactions"
       (byTypeChange)="onByTypeChange($event)"
       (byDateChange)="onByDateChange($event)"
       (byMountChange)="onByMountChange($event)"

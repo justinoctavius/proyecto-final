@@ -17,7 +17,6 @@ export class TransactionFilterComponent {
   @Input() typeFilter: boolean = true;
   @Input() dateFilter: boolean = true;
   @Input() mountFilter: boolean = true;
-  @Input() transactions: Transaction[] = [];
 
   @Output() byTypeChange: EventEmitter<SortByTypeTypes> = new EventEmitter();
   @Output() byDateChange: EventEmitter<Date> = new EventEmitter();
@@ -31,39 +30,9 @@ export class TransactionFilterComponent {
       { value: SortByTypeTypes.INCOMES, desc: 'ingresos' },
     ],
   };
-  byDate: TransactionFilterSortBy = {
-    name: 'fecha',
-    types: [
-      { value: SortByDateTypes.ASC, desc: 'recientes' },
-      { value: SortByDateTypes.DESC, desc: 'antiguas' },
-    ],
-  };
-  byMount: TransactionFilterSortBy = {
-    name: 'monto',
-    types: [
-      { value: SortByMountTypes.ASC, desc: 'mayor' },
-      { value: SortByMountTypes.DESC, desc: 'menor' },
-    ],
-  };
 
-  constructor(private filterService: FilterService) {}
-
-  onSortByTypeChange(selected: FilterButtonType) {
+  onFilterByTypeChange(selected: FilterButtonType) {
     this.byTypeChange.emit(selected.value as SortByTypeTypes);
-  }
-
-  onSortByDateChange(selected: FilterButtonType) {
-    this.filterService.sortTransactionsByDate(
-      selected.value as SortByDateTypes,
-      this.transactions
-    );
-  }
-
-  onSortByMountChange(selected: FilterButtonType) {
-    this.filterService.sortTransactionsByMount(
-      selected.value as SortByMountTypes,
-      this.transactions
-    );
   }
 
   onFilterByDateChange(date: Date) {

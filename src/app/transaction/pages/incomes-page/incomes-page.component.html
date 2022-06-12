@@ -1,10 +1,7 @@
 <app-graphic-transactions
   [transactions]="transactions"
 ></app-graphic-transactions>
-<app-transactions-status
-  [typeFilter]="false"
-  [transactions]="transactions"
-></app-transactions-status>
+<app-transactions-status [typeFilter]="false"></app-transactions-status>
 <app-transaction-list
   [transactions]="transactions"
   (removeClick)="onRemoveClick($event)"
