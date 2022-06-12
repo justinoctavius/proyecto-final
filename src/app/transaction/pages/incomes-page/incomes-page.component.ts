@@ -21,4 +21,12 @@ export class IncomesPageComponent {
   onRemoveClick(id: string) {
     this.incomesService.removeTransaction(id);
   }
+
+  onFilterByDateChange(date: Date) {
+    this.incomesService.getTransactionByDate(date);
+  }
+
+  onFilterByMountChange(mount: number) {
+    this.incomesService.getTransactionByMount(mount);
+  }
 }

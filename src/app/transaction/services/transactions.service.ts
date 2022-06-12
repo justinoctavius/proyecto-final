@@ -20,20 +20,20 @@ export class TransactionsService {
   }
 
   async getTransactionsByType(type: SortByTypeTypes) {
-    this.transactions = await this.transactionApiService.getTransactionsByType(
-      type
+    this.transactions = await this.transactionApiService.getTransactionByFilter(
+      { type }
     );
   }
 
   async getTransactionsByDate(date: Date) {
-    this.transactions = await this.transactionApiService.getTransactionByDate(
-      date
+    this.transactions = await this.transactionApiService.getTransactionByFilter(
+      { date }
     );
   }
 
   async getTransactionsByMount(mount: number) {
-    this.transactions = await this.transactionApiService.getTransactionByMount(
-      mount
+    this.transactions = await this.transactionApiService.getTransactionByFilter(
+      { mount }
     );
   }
 

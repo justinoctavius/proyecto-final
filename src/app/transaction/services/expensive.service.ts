@@ -12,9 +12,10 @@ export class ExpensiveService {
   constructor(private transactionsApiService: TransactionsApiService) {}
 
   async getTransactions() {
-    this.transactions = await this.transactionsApiService.getTransactionsByType(
-      SortByTypeTypes.EXPENSIVE
-    );
+    this.transactions =
+      await this.transactionsApiService.getTransactionByFilter({
+        type: SortByTypeTypes.EXPENSIVE,
+      });
   }
 
   async removeTransaction(id: string) {

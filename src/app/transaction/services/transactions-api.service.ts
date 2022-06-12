@@ -29,26 +29,17 @@ export class TransactionsApiService {
     const result = this.http.get<Transaction[]>(transaction_url);
     return await lastValueFrom(result);
   }
-  async getTransactionsByType(type: SortByTypeTypes) {
-    if (type === SortByTypeTypes.ALL) {
-      return await this.getTransactions();
-    }
-    const result = this.http.get<Transaction[]>(
-      `${transaction_url}?type=${type}`
-    );
-    return await lastValueFrom(result);
-  }
 
-  async getTransactionByDate(date: Date) {
+  async getTransactionByFilter(filters: {
+    mount?: number;
+    date?: Date;
+    type?: SortByTypeTypes;
+  }) {
+    const mountFilter = filters.mount ? `&mount=${filters.mount}` : '';
+    const typeFilter = filters.type ? `&type=${filters.type}` : '';
+    const dateFilter = filters.date ? `&date=${filters.date}` : '';
     const result = this.http.get<Transaction[]>(
-      `${transaction_url}?date=${date}`
-    );
-    return await lastValueFrom(result);
-  }
-
-  async getTransactionByMount(mount: number) {
-    const result = this.http.get<Transaction[]>(
-      `${transaction_url}?mount=${mount}`
+      `${transaction_url}?${mountFilter}${typeFilter}${dateFilter}`
     );
     return await lastValueFrom(result);
   }
