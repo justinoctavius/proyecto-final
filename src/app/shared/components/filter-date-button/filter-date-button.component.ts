@@ -7,11 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class FilterDateButtonComponent {
   @Input() name: string = '';
 
-  @Output() change: EventEmitter<Date> = new EventEmitter();
+  @Output() changeDate: EventEmitter<Date> = new EventEmitter();
 
   onChange(event: any) {
     const date = event.target.value;
-
-    this.change.emit(date);
+    this.changeDate.emit(date);
   }
 }
