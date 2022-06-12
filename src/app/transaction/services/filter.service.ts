@@ -18,10 +18,12 @@ export class FilterService {
     transactions: Transaction[]
   ) {
     return transactions.sort((a, b) => {
+      const dateA: Date = new Date(a.date);
+      const dateB: Date = new Date(b.date);
       if (sortType === SortByDateTypes.DESC) {
-        return a.date.getTime() - b.date.getTime();
+        return dateA.getTime() - dateB.getTime();
       }
-      return b.date.getTime() - a.date.getTime();
+      return dateB.getTime() - dateA.getTime();
     });
   }
 

@@ -19,6 +19,7 @@ import { TransactionFilterComponent } from './components/transaction-filter/tran
 import { ExpensesPageComponent } from './pages/expenses-page/expenses-page.component';
 import { IncomesPageComponent } from './pages/incomes-page/incomes-page.component';
 import { GraphicTransactionsComponent } from './components/graphic-transactions/graphic-transactions.component';
+import { TransactionSorterComponent } from './components/transaction-sorter/transaction-sorter.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GraphicTransactionsComponent } from './components/graphic-transactions/
     TransactionsStatusComponent,
     TransactionTypeComponent,
     TransactionFilterComponent,
+    TransactionSorterComponent,
     CategoryComponent,
     CategoryListComponent,
     GraphicTransactionsComponent,

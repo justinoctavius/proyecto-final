@@ -1,0 +1,14 @@
+<div class="flex gap-2 flex-wrap bg-white p-4 rounded-lg mx-4">
+  <app-filter-button
+    [name]="byDate.name"
+    [types]="byDate.types"
+    [typeSelected]="byDate.types[0]"
+    (change)="onSortByDateChange($event)"
+  ></app-filter-button>
+  <app-filter-button
+    [name]="byMount.name"
+    [types]="byMount.types"
+    [typeSelected]="byMount.types[0]"
+    (change)="onSortByMountChange($event)"
+  ></app-filter-button>
+</div>
