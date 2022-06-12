@@ -26,4 +26,12 @@ export class ExpensiveService {
       this.error = error.error.message;
     }
   }
+
+  async getTransactionsByFilter(filters: any) {
+    this.transactions =
+      await this.transactionsApiService.getTransactionByFilter({
+        ...filters,
+        type: SortByTypeTypes.EXPENSIVE,
+      });
+  }
 }

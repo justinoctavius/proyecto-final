@@ -23,4 +23,12 @@ export class ExpensesPageComponent {
   onRemoveClick(id: string) {
     this.expensiveService.removeTransaction(id);
   }
+
+  async onFilterByDateChange(date: Date) {
+    await this.expensiveService.getTransactionsByFilter({ date });
+  }
+
+  async onFilterByMountChange(mount: number) {
+    await this.expensiveService.getTransactionsByFilter({ mount });
+  }
 }

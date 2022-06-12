@@ -1,7 +1,12 @@
 <app-graphic-transactions
   [transactions]="transactions"
 ></app-graphic-transactions>
-<app-transactions-status [typeFilter]="false"></app-transactions-status>
+<app-transactions-status
+  [typeFilter]="false"
+  (byDateChange)="onFilterByDateChange($event)"
+  (byMountChange)="onFilterByMountChange($event)"
+></app-transactions-status>
+<app-transaction-sorter [transactions]="transactions"></app-transaction-sorter>
 <app-transaction-list
   [transactions]="transactions"
   (removeClick)="onRemoveClick($event)"
